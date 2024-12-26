@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+    - name: GA4
+      description: This is a replica of the Postgres database used by our app
+      database: SNOWFLAKE_CONNECTOR_FOR_GOOGLE_ANALYTICS_RAW_DATA_DEST_DB
+      schema: SNOWFLAKE_CONNECTOR_FOR_GOOGLE_ANALYTICS_RAW_DATA_DEST_SCHEMA
+      tables:
+          - name: PSEUDONYMOUS_USERS_410564878
+            description: ga4 external pseudousers table.
+    - name: GA4_LANDING
+      description: GA4 source in Landing area
+      database: LANDING
+      schema: GA_BQ_HISTORICAL_DATA
+      tables:
+          - name: PSEUDONYMOUS_USERS_HISTORICAL_DATA
+            description: ga4 transient event pseudousers historical data.
+          - name: EVENT_HISTORICAL_DATA
+            description: ga4 transient event historical data.
