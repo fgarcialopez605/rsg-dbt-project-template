@@ -48,3 +48,6 @@ models:
       brevo:
         +materialized: view
         +schema: brevo
+      sprinklr:
+        +materialized: view
+        +schema: sprinklr

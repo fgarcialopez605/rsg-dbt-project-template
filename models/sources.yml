@@ -17,3 +17,12 @@ sources:
             description: ga4 transient event pseudousers historical data.
           - name: EVENT_HISTORICAL_DATA
             description: ga4 transient event historical data.
+    - name: SPRINKLR
+      description: Sprinkler source in Landing area
+      database: TEST
+      schema: DEV
+      tables:
+          - name: CAMPAIGN
+            description: Sprinkler iceberg campaigns data.
+          - name: CLIENTS
+            description: Sprinkler iceberg clients data.
