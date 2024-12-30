@@ -17,6 +17,27 @@ sources:
             description: ga4 transient event pseudousers historical data.
           - name: EVENT_HISTORICAL_DATA
             description: ga4 transient event historical data.
+    - name: BREVO
+      description: Brevo source in Landing area
+      database: TEST
+      schema: DEV
+      tables:
+        - name: ACCOUNTS
+          description: Brevo iceberg accounts data.
+        - name: CONTACTS
+          description: Brevo iceberg contacts data.
+        - name: CONTACTS_LISTS
+          description: Brevo iceberg contacts lists data.
+        - name: DOMAINS
+          description: Brevo iceberg domains data.
+        - name: LOYALTY
+          description: Brevo iceberg loyalty data.
+        - name: PROCESSES
+          description: Brevo iceberg processes data.
+        - name: SMTP_TEMPLATES
+          description: Brevo iceberg smtp templates data.
+        - name: USERS
+          description: Brevo iceberg users data.
     - name: SPRINKLR
       description: Sprinkler source in Landing area
       database: TEST
