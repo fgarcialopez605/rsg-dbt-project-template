@@ -20,7 +20,7 @@ sources:
     - name: BREVO
       description: Brevo source in Landing area
       database: TEST
-      schema: DEV
+      schema: BREVO
       tables:
         - name: ACCOUNTS
           description: Brevo iceberg accounts data.
