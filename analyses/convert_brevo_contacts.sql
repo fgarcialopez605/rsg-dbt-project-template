@@ -14,7 +14,6 @@ src_data AS (
 
     FROM {{ source("BREVO", "CONTACTS")}}
 ),
-
 flattened_data AS (
     SELECT
         ID as ID -- NUMBER

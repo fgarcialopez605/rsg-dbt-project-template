@@ -1,14 +1,31 @@
 WITH
 
 src_data AS (
-    SELECT
+    SELECT DISTINCT
         EMAIL as EMAIL -- TEXT
         , IS_OWNER as IS_OWNER -- BOOLEAN
         , STATUS as STATUS -- TEXT
-        , FEATURE_ACCESS as FEATURE_ACCESS -- TEXT
         , ID as ID -- TEXT
+        , PARSE_JSON(FEATURE_ACCESS) AS FEATURE_ACCESS
         
     FROM {{ source("BREVO", "USERS")}}
+),
+
+flattened_data AS (
+    SELECT
+        EMAIL AS EMAIL -- TEXT
+        , IS_OWNER AS IS_OWNER -- BOOLEAN
+        , STATUS AS STATUS -- TEXT
+        , ID AS ID
+        , FEATURE_ACCESS AS FEATURE_ACCESS -- TEXT
+        , FEATURE_ACCESS:conversations::STRING AS FEATURE_ACCESS_CONVERSATIONS
+        , FEATURE_ACCESS:crm::STRING AS FEATURE_ACCESS_CRM
+        , FEATURE_ACCESS:marketing::STRING AS FEATURE_ACCESS_MARKETING
+        , FEATURE_ACCESS:phone::STRING AS FEATURE_ACCESS_PHONE
+        , FEATURE_ACCESS:transactional::STRING AS FEATURE_ACCESS_TRANSACTIONAL
+        
+    FROM src_data
 )
 
-SELECT * FROM src_data
+
+SELECT * FROM flattened_data
