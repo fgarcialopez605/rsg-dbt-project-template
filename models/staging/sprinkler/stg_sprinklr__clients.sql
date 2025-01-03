@@ -1,4 +1,9 @@
-with source as (
-     SELECT * FROM {{ source('SPRINKLR', 'CLIENTS') }}
+with src_data as (
+     SELECT
+        CLIENTID as CLIENTID -- NUMBER
+        , PARTNERID as PARTNERID -- NUMBER
+        , CLIENTNAME as CLIENTNAME -- TEXT
+     FROM {{ source('SPRINKLR', 'CLIENTS') }}
 )
-SELECT * FROM source
+
+SELECT * FROM src_data

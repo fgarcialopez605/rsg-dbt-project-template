@@ -41,7 +41,7 @@ sources:
     - name: SPRINKLR
       description: Sprinkler source in Landing area
       database: TEST
-      schema: DEV
+      schema: SPRINKLR
       tables:
           - name: CAMPAIGN
             description: Sprinkler iceberg campaigns data.
